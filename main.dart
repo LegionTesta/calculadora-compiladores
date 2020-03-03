@@ -3,6 +3,13 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:string_validator/string_validator.dart';
 
+/*
+Codigo para analise lexica de entradas para calculadora.
+Necessario espaco apos cada elemento (numeros contam como um elemento unico).
+Necessario existir espaco apos ultimo elemento.
+Necessario existir um arquivo nomeado "entrada.txt" no mesmo diretorio que este codigo.
+*/
+
 void main() async {
 
   List<String> entrada = await getEntrada();
@@ -42,6 +49,8 @@ class TabelaDeTokens{
   
   void tokeniza(String entrada){
 
+    print("Tokenizando a entrada: $entrada");
+
     TipoToken ultimoToken = TipoToken.ESPACO;
     String stringAtual = "";
 
@@ -51,7 +60,6 @@ class TabelaDeTokens{
       switch (charCode){
 
         case 32:
-          print(charCode);
           if(ultimoToken == TipoToken.NUMERO){
             if(isInt(stringAtual))
               numInts.add(stringAtual);
@@ -83,11 +91,10 @@ class TabelaDeTokens{
             erros.add(stringAtual);
           
           stringAtual = "";
-          ultimoToken == TipoToken.ESPACO;
+          ultimoToken = TipoToken.ESPACO;
         break;
 
         case 40:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -98,7 +105,6 @@ class TabelaDeTokens{
         break;
 
         case 41:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -109,7 +115,6 @@ class TabelaDeTokens{
         break;
 
         case 42:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -120,19 +125,16 @@ class TabelaDeTokens{
         break;
 
         case 43:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
           } else{
-            print("aa");
             stringAtual = "+";
             ultimoToken = TipoToken.ADICAO;
           }             
         break;
 
         case 45:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -143,7 +145,6 @@ class TabelaDeTokens{
         break;
 
         case 47:
-          print(charCode);
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -154,7 +155,6 @@ class TabelaDeTokens{
         break;
 
         default:
-          print(charCode);
           if((charCode > 47 && charCode < 58) || charCode == 46){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.NUMERO;
