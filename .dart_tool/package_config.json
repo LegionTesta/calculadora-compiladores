@@ -1,0 +1,19 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "string_validator",
+      "rootUri": "file:///C:/flutter/.pub-cache/hosted/pub.dartlang.org/string_validator-0.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "calculadora_compiladores",
+      "rootUri": "../",
+      "packageUri": "lib/"
+    }
+  ],
+  "generated": "2020-03-03T15:52:04.670132Z",
+  "generator": "pub",
+  "generatorVersion": "2.8.0-dev.8.0.flutter-514a8d4c84"
+}

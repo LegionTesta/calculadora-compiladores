@@ -1,0 +1,3 @@
+name: "calculadora_compiladores"
+dependencies:
+  string_validator: 0.1.3
