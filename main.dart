@@ -38,15 +38,15 @@ class TabelaDeTokens{
     erros = List();
   }
 
-  List<dynamic> numReais;
-  List<dynamic> numInts;
-  List<dynamic> opSoma;
-  List<dynamic> opMult;
-  List<dynamic> opSub;
-  List<dynamic> opDivis;
-  List<dynamic> abreParen;
-  List<dynamic> fechaParen;
-  List<dynamic> erros;
+  List<String> numReais;
+  List<String> numInts;
+  List<String> opSoma;
+  List<String> opMult;
+  List<String> opSub;
+  List<String> opDivis;
+  List<String> abreParen;
+  List<String> fechaParen;
+  List<String> erros;
   
   void tokeniza(String entrada){
 
