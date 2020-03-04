@@ -57,10 +57,9 @@ class TabelaDeTokens{
 
     for(int x = 0; x < entrada.length; x++){
 
-      var charCode = entrada.codeUnitAt(x);
-      switch (charCode){
+      switch (entrada[x]){
 
-        case 32:
+        case " ":
           if(ultimoToken == TipoToken.NUMERO){
             if(isInt(stringAtual))
               numInts.add(stringAtual);
@@ -95,7 +94,7 @@ class TabelaDeTokens{
           ultimoToken = TipoToken.ESPACO;
         break;
 
-        case 40:
+        case "(":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -105,7 +104,7 @@ class TabelaDeTokens{
           }
         break;
 
-        case 41:
+        case ")":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -115,7 +114,7 @@ class TabelaDeTokens{
           }
         break;
 
-        case 42:
+        case "*":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -125,7 +124,7 @@ class TabelaDeTokens{
           }
         break;
 
-        case 43:
+        case "+":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -135,7 +134,7 @@ class TabelaDeTokens{
           }             
         break;
 
-        case 45:
+        case "-":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -145,7 +144,7 @@ class TabelaDeTokens{
           }            
         break;
 
-        case 47:
+        case "/":
           if(ultimoToken != TipoToken.ESPACO){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.ERRO;
@@ -156,7 +155,7 @@ class TabelaDeTokens{
         break;
 
         default:
-          if((charCode > 47 && charCode < 58) || charCode == 46){
+          if((entrada.codeUnitAt(x) > 47 && entrada.codeUnitAt(x) < 58) || entrada[x] == "."){
             stringAtual += entrada[x];
             ultimoToken = TipoToken.NUMERO;
           } else {
@@ -186,11 +185,11 @@ class TabelaDeTokens{
       opMult.forEach((element) {print("$element ");});
     }
     if(opSub.length != 0 ){
-      print("Operadores de multiplicacao: ");
+      print("Operadores de subtracao: ");
       opSub.forEach((element) {print("$element ");});
     }
     if(opDivis.length != 0 ){
-      print("Operadores de multiplicacao: ");
+      print("Operadores de divisao: ");
       opDivis.forEach((element) {print("$element ");});
     }
     if(abreParen.length != 0 ){
@@ -202,7 +201,7 @@ class TabelaDeTokens{
       fechaParen.forEach((element) {print("$element ");});
     }
     if(erros.length != 0 ){
-      print("Erros: ");
+      print("Erros lexicos: ");
       erros.forEach((element) {print("$element ");});
     }
   }
