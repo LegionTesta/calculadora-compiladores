@@ -6,8 +6,9 @@ import 'package:string_validator/string_validator.dart';
 /*
 Codigo para analise lexica de entradas para calculadora.
 Necessario espaco apos cada elemento (numeros contam como um elemento unico).
-Necessario existir espaco apos ultimo elemento.
+Necessario existir espaco apos ultimo elemento da entrada.
 Necessario existir um arquivo nomeado "entrada.txt" no mesmo diretorio que este codigo.
+O programa irá ler somente a primeira linha da entrada
 */
 
 void main() async {
